@@ -29,7 +29,12 @@ jobs:
         run: npm ci
       - name: Build with Next.js
         run: npm run build
-      - name: Upload artifact
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-output
+          path: ./out
+      - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v2
         with:
           path: ./out
