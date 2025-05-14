@@ -3,7 +3,7 @@
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { useState, useCallback, useEffect } from "react";
-import { cn } from "@/lib/utils";
+import { cn, getImagePath } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./background-gradient-animation";
 import { GridGlobe } from "../grid-globe";
 import { FaWhatsapp } from "react-icons/fa6";
@@ -194,7 +194,7 @@ export const DeckCard = ({
             <Image
               width={689}
               height={541}
-              src={img}
+              src={getImagePath(img)}
               alt={img}
               className={cn(
                 "h-full w-full object-cover object-center transition-transform duration-500",
@@ -216,7 +216,7 @@ export const DeckCard = ({
             <Image
               width={208}
               height={96}
-              src={spareImg}
+              src={getImagePath(spareImg)}
               alt={spareImg}
               className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
             />
@@ -542,8 +542,8 @@ export const DeckCard = ({
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold font-blackops drop-shadow-md group inline-block cursor-pointer">
                 <span className="text-blue-400 transition-all duration-300 group-hover:text-blue-300 group-hover:brightness-125 group-hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.6)]">{title}</span>
               </h3>
-            </div>
-          </div>
+        </div>
+      </div>
         </>
       )}
     </motion.div>

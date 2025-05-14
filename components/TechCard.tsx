@@ -98,13 +98,13 @@ export const TechCard = ({ isVisible }: { isVisible: boolean }) => {
             {categories.DEVOPS.map((tech) => (
               <div key={tech} className="group flex flex-col items-center justify-center">
                 <div className={`text-2xl text-blue-400 transition-all duration-300 ${getHoverEffect(tech, 'DEVOPS')}`}>
-                  {iconMap[tech]}
-                </div>
+                      {iconMap[tech]}
+                    </div>
                 <div className="text-[9px] text-center text-white/70 group-hover:text-white transition-colors duration-200 mt-1">
-                  {tech}
-                </div>
-              </div>
-            ))}
+                      {tech}
+                    </div>
+                  </div>
+                ))}
           </div>
         </div>
         
@@ -118,9 +118,9 @@ export const TechCard = ({ isVisible }: { isVisible: boolean }) => {
                 </div>
                 <div className="text-[9px] text-center text-white/70 group-hover:text-white transition-colors duration-200 mt-1">
                   {tech}
-                </div>
               </div>
-            ))}
+            </div>
+          ))}
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa6";
 
 import { techStack } from "@/data";
-import { cn } from "@/lib/utils";
+import { cn, getImagePath } from "@/lib/utils";
 
 import { BackgroundGradientAnimation } from "./background-gradient-animation";
 import { MagicButton } from "./magic-button";
@@ -79,7 +79,7 @@ export const BentoGridItem = ({
             <Image
               width={689}
               height={541}
-              src={img}
+              src={getImagePath(img)}
               alt={img}
               className={cn("h-full w-full object-cover object-center", imgClassName)}
               priority
@@ -97,7 +97,7 @@ export const BentoGridItem = ({
             <Image
               width={208}
               height={96}
-              src={spareImg}
+              src={getImagePath(spareImg)}
               alt={spareImg}
               className="h-full w-full object-cover object-center"
             />

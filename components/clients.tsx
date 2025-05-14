@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { companies, testimonials } from "@/data";
+import { getImagePath } from "@/lib/utils";
 
 export const Clients = () => {
   return (
@@ -26,7 +27,7 @@ export const Clients = () => {
               <Image
                 height={29}
                 width={43}
-                src={img}
+                src={getImagePath(img)}
                 alt={`${name}'s logo`}
                 className="w-5 md:w-10"
               />
@@ -34,7 +35,7 @@ export const Clients = () => {
               <Image
                 height={28}
                 width={131}
-                src={nameImg}
+                src={getImagePath(nameImg)}
                 alt={name}
                 className="w-20 md:w-24"
               />

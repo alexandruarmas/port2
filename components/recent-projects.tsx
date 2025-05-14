@@ -8,15 +8,16 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 
 import { projects } from "@/data";
+import { getImagePath } from "@/lib/utils";
 
 interface Project {
   id: number;
+  title: string;
   des: string;
-  iconLists: readonly string[];
   img: string;
+  iconLists: readonly string[];
   link: string;
   sourceCode: string;
-  title: string;
 }
 
 interface ProjectCardProps {
@@ -64,7 +65,7 @@ const ProjectCard = ({ project, index, totalProjects }: ProjectCardProps) => {
               <Image
                 height={330}
                 width={552}
-                src="/bg.png"
+                src={getImagePath("/bg.png")}
                 alt="bg-img"
                 className="h-full w-full object-cover"
               />
