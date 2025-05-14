@@ -1,0 +1,124 @@
+// TECH CARD DESIGN - APPLE-INSPIRED DARK MODE AESTHETIC
+// Modern tech showcase with dynamic elements and glass morphism
+
+{id === 4 && (
+  <>
+    <BackgroundGradientAnimation
+      gradientBackgroundStart="rgb(0, 0, 10)"
+      gradientBackgroundEnd="rgb(3, 6, 23)"
+      firstColor="76, 29, 149"
+      secondColor="32, 80, 170" 
+      thirdColor="90, 55, 160"
+      interactive={true}
+      containerClassName="opacity-90"
+      className="!absolute inset-0 h-full w-full"
+    />
+    <div className="absolute inset-0 w-full h-full overflow-hidden">
+      {/* Glass morphism container */}
+      <div className="absolute inset-0 w-full h-full">
+        <div className="absolute right-0 top-0 w-72 h-72 bg-purple-700/10 rounded-full blur-3xl"></div>
+        <div className="absolute left-0 bottom-0 w-72 h-72 bg-blue-700/10 rounded-full blur-3xl"></div>
+      </div>
+      
+      {/* Floating 3D elements */}
+      <div className="absolute top-8 right-8 w-28 h-28 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 rounded-xl border border-white/5 backdrop-blur-sm transform rotate-12 animate-float-slow shadow-lg shadow-purple-500/10"></div>
+      <div className="absolute bottom-16 left-8 w-16 h-16 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 rounded-lg border border-white/5 backdrop-blur-sm transform -rotate-6 animate-float shadow-lg shadow-blue-500/10" style={{animationDelay: '1s'}}></div>
+      
+      {/* Dynamic dots grid */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="grid grid-cols-12 gap-4 h-full w-full p-8">
+          {Array(24).fill(0).map((_, i) => (
+            <div key={i} className="relative">
+              <div className={`absolute w-1 h-1 rounded-full ${i % 3 === 0 ? 'bg-purple-400' : i % 3 === 1 ? 'bg-blue-400' : 'bg-indigo-400'} animate-pulse`} 
+                style={{
+                  top: `${(Math.sin(i * 0.5) * 30) + 50}%`, 
+                  left: `${(Math.cos(i * 0.5) * 30) + 50}%`,
+                  animationDuration: `${2 + (i % 3)}s`,
+                  animationDelay: `${i * 0.2}s`
+                }}></div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      {/* Code Editor Snippet with improved design */}
+      <div className="absolute left-6 top-20 bg-black/40 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-2xl shadow-purple-500/10 text-[9px] text-blue-300/90 font-mono transform -rotate-2 w-56 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/20">
+        <div className="flex items-center gap-1.5 mb-2.5">
+          <div className="w-2 h-2 rounded-full bg-red-400/90"></div>
+          <div className="w-2 h-2 rounded-full bg-yellow-400/90"></div>
+          <div className="w-2 h-2 rounded-full bg-green-400/90"></div>
+          <span className="ml-2 text-[8px] text-white/60">App.tsx</span>
+        </div>
+        <div className="text-left space-y-1">
+          <div><span className="text-pink-400">import</span> <span className="text-blue-300">React</span> <span className="text-pink-400">from</span> <span className="text-green-300">&apos;react&apos;</span>;</div>
+          <div><span className="text-pink-400">import</span> { <span className="text-yellow-300">Portfolio</span> } <span className="text-pink-400">from</span> <span className="text-green-300">&apos;./components&apos;</span>;</div>
+          <div className="mt-2"><span className="text-pink-400">export default function</span> <span className="text-blue-300">App</span>() {'{'}
+          </div>
+          <div>&nbsp;&nbsp;<span className="text-pink-400">return</span> (</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span className="text-yellow-300">div</span> <span className="text-blue-200">className</span>=<span className="text-green-300">&quot;app&quot;</span>&gt;</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span className="text-yellow-300">Portfolio</span> /&gt;</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span className="text-yellow-300">div</span>&gt;</div>
+          <div>&nbsp;&nbsp;);</div>
+          <div>{'}'}</div>
+        </div>
+      </div>
+      
+      {/* Tech showcase section */}
+      <div className="absolute bottom-6 right-6 backdrop-blur-md bg-white/5 p-4 rounded-xl border border-white/10 shadow-lg w-44">
+        <h4 className="text-[10px] font-medium text-white/60 uppercase tracking-wider mb-2.5">Tech Stack</h4>
+        <div className="flex flex-wrap gap-1.5">
+          {['React', 'Next.js', 'TypeScript', 'TailwindCSS', 'Framer'].map((tech, i) => (
+            <span key={i} 
+              className="text-[9px] px-2 py-1 rounded-md border transition-all duration-300 hover:scale-105 hover:shadow-inner"
+              style={{
+                background: `rgba(${i % 2 ? '76, 29, 149' : '32, 80, 170'}, 0.1)`,
+                borderColor: `rgba(${i % 2 ? '76, 29, 149' : '32, 80, 170'}, 0.2)`,
+                color: i % 2 ? 'rgb(216, 180, 254)' : 'rgb(191, 219, 254)'
+              }}>
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+      
+      {/* Decorative elements */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 w-16 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+      
+      {/* Interactive loading bar */}
+      <div className="absolute bottom-20 left-6 w-32 h-1.5 bg-black/30 rounded-full overflow-hidden backdrop-blur-sm border border-white/10">
+        <div className="h-full w-2/3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
+      </div>
+      
+      {/* Lines connecting elements */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" xmlns="http://www.w3.org/2000/svg">
+        <line x1="30%" y1="30%" x2="70%" y2="70%" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5" />
+        <line x1="70%" y1="30%" x2="30%" y2="70%" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5" />
+      </svg>
+    </div>
+  </>
+)}
+
+{/* Content section */}
+{id === 4 && (
+  <div className="z-20 relative p-6">
+    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-300 mb-3">
+      {title}
+    </h3>
+    <p className="max-w-xs text-sm text-white/80 font-light leading-relaxed backdrop-blur-sm bg-black/10 p-3 rounded-lg border border-white/5 shadow-lg">
+      {description}
+    </p>
+    
+    <div className="absolute bottom-6 left-6 flex items-center gap-2">
+      <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+      <span className="text-[10px] text-white/60">Available for projects</span>
+    </div>
+  </div>
+)}
+
+// DESIGN NOTES:
+// 1. Uses glass morphism with subtle backdrop blur for depth
+// 2. Adheres to Apple dark mode guidelines with proper contrast 
+// 3. Includes interactive elements with hover states
+// 4. Dynamic animations with staggered timing
+// 5. Tech-themed visuals appropriate for development portfolio
+// 6. Responsive text sizing and layout 
