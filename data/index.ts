@@ -2,7 +2,7 @@ import { links } from "@/config";
 
 // Function to handle paths with basePath for GitHub Pages
 const getImagePath = (path: string) => {
-  const basePath = process.env.NODE_ENV === 'production' ? '/next-portfolio-main' : '';
+  const basePath = process.env.NODE_ENV === 'production' ? '/port2' : '';
   return `${basePath}${path}`;
 };
 
