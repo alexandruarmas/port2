@@ -8,5 +8,10 @@ export function cn(...inputs: ClassValue[]) {
 // Function to handle paths with basePath for GitHub Pages
 export function getImagePath(path: string) {
   const basePath = process.env.NODE_ENV === 'production' ? '/port2' : '';
-  return `${basePath}${path}`;
+  const fullPath = `${basePath}${path}`;
+  console.log('Environment:', process.env.NODE_ENV);
+  console.log('Base Path:', basePath);
+  console.log('Image Path:', path);
+  console.log('Full Path:', fullPath);
+  return fullPath;
 }
