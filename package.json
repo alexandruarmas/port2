@@ -10,8 +10,8 @@
   },
   "author": {
     "name": "Alexandru Armaș",
-    "email": "sanidhya.verma12345@gmail.com",
-    "url": "https://codewithsanidhya.vercel.app"
+    "email": "alexandru.armas22@gmail.com",
+    "url": "https://alexandruarmas.github.io/port2"
   },
   "description": "Modern & Minimalist Next.js Portfolio.",
   "keywords": [
@@ -57,12 +57,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sanidhyy/next-portfolio.git"
+    "url": "https://github.com/alexandruarmas/port2.git"
   },
-  "homepage": "https://github.com/sanidhyy/next-portfolio#readme",
+  "homepage": "https://github.com/alexandruarmas/port2#readme",
   "bugs": {
-    "url": "https://github.com/sanidhyy/next-portfolio/issues",
-    "email": "sanidhya.verma12345@gmail.com"
+    "url": "https://github.com/alexandruarmas/port2/issues",
+    "email": "alexandru.armas22@gmail.com"
   },
   "funding": [
     {
