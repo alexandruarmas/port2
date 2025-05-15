@@ -80,10 +80,14 @@ const ProjectCard = ({ project, index, totalProjects }: ProjectCardProps) => {
                 className="absolute bottom-0 z-10 max-h-[70%] w-auto"
               />
             )}
+            
+            <h2 className="absolute bottom-4 left-4 z-20 text-lg font-bold text-white md:text-xl">
+              {title}
+            </h2>
           </div>
         </div>
 
-        {/* Back of card - NO BACKGROUND IMAGE */}
+        {/* Back of card - NO IMAGES, only description and links */}
         <div className="absolute h-full w-full rounded-xl bg-[#13162d] p-6 [backface-visibility:hidden] [transform:rotateY(180deg)]">
           <div className="flex h-full flex-col justify-between">
             <div>
