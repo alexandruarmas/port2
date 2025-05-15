@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import { Button } from "@/components/ui/moving-borders";
 import { workExperience } from "@/data";
-import { getImagePath } from "@/lib/utils";
 
 export const Experience = () => {
   return (
@@ -23,7 +22,7 @@ export const Experience = () => {
               <Image
                 width={95}
                 height={87}
-                src={getImagePath(experience.thumbnail)}
+                src={experience.thumbnail}
                 alt={experience.title}
                 className="h-auto w-16 md:w-20 lg:w-24"
               />
