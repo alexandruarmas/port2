@@ -26,6 +26,8 @@ export default function ProjectCard({
             alt={title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"
+            priority
+            unoptimized
           />
         </div>
         <div className="mt-4">

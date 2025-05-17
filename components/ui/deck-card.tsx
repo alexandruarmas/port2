@@ -2,13 +2,29 @@
 
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, Suspense } from "react";
+import dynamic from 'next/dynamic';
 import { cn, getImagePath } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./background-gradient-animation";
-import { GridGlobe } from "../grid-globe";
 import { FaWhatsapp } from "react-icons/fa6";
 import { MagicButton } from "./magic-button";
 import { TechCard } from "../TechCard";
+// Import GlobeVisualization dynamically with SSR disabled
+const GlobeVisualization = dynamic(() => import("@/app/components/Globe"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="relative w-64 h-64 rounded-full bg-[#121A40] animate-pulse overflow-hidden">
+        {/* Add visual details to make the fallback look more like a globe */}
+        <div className="absolute w-16 h-8 rounded-full bg-blue-500/10 top-10 left-10 blur-sm"></div>
+        <div className="absolute w-24 h-8 rounded-full bg-blue-500/10 bottom-14 right-12 blur-sm"></div>
+        <div className="absolute inset-0 border border-blue-400/20 rounded-full"></div>
+        <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-blue-400/20"></div>
+        <div className="absolute top-0 bottom-0 left-1/2 w-[1px] bg-blue-400/20"></div>
+      </div>
+    </div>
+  ),
+});
 
 interface DeckCardProps {
   id: number;
@@ -34,6 +50,11 @@ export const DeckCard = ({
   const [isHovered, setIsHovered] = useState(false);
   const controls = useAnimation();
   const [hasEnteredView, setHasEnteredView] = useState(false);
+  const [globeLoaded, setGlobeLoaded] = useState(false);
+  
+  // Override img and spareImg for cards 4 and 5 to force them to be empty
+  const actualImg = (id === 4 || id === 5) ? "" : img;
+  const actualSpareImg = (id === 4 || id === 5) ? "" : spareImg;
 
   const handleClick = async () => {
     // More pronounced vibration sequence
@@ -79,6 +100,18 @@ export const DeckCard = ({
       }
     });
   }, [controls]);
+
+  // Add loading timeout effect for globe
+  useEffect(() => {
+    if (id === 2) {
+      // Set a minimum delay before showing globe to ensure smoother transition
+      const timer = setTimeout(() => {
+        setGlobeLoaded(true);
+      }, 500);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [id]);
 
   const handleWhatsAppClick = () => {
     const phoneNumber = "+40726018217";
@@ -141,7 +174,7 @@ export const DeckCard = ({
       animate={controls}
       style={{
         opacity: hasEnteredView ? 1 : 0,
-        scale: id === 3 || id === 2 ? 1 : (isHovered ? 1.02 : 1)
+        scale: id === 3 ? 1 : (isHovered && id !== 2 ? 1.02 : 1)
       }}
       whileHover={id === 3 || id === 2 || id === 5 ? {} : {
         scale: 1.02,
@@ -164,16 +197,34 @@ export const DeckCard = ({
         />
       )}
       {id === 2 && (
-        <BackgroundGradientAnimation
-          gradientBackgroundStart="rgb(1, 2, 20)"
-          gradientBackgroundEnd="rgb(2, 6, 30)"
-          firstColor="50, 20, 100"
-          secondColor="30, 10, 70"
-          thirdColor="60, 30, 150"
-          interactive={false}
-          containerClassName="opacity-90"
-          className="!absolute inset-0 h-full w-full"
-        />
+        <>
+          <BackgroundGradientAnimation
+            gradientBackgroundStart="rgb(1, 2, 20)"
+            gradientBackgroundEnd="rgb(2, 6, 30)"
+            firstColor="50, 20, 100"
+            secondColor="30, 10, 70"
+            thirdColor="60, 30, 150"
+            interactive={true}
+            containerClassName="opacity-90"
+            className="!absolute inset-0 h-full w-full"
+          />
+          <div className="absolute inset-0 overflow-hidden rounded-3xl border border-white/10 backdrop-blur-sm">
+            <div className="absolute inset-0 flex flex-col items-center p-4 md:p-6">
+              <h3 className="text-base md:text-xl font-bold font-blackops text-center mb-4 md:mb-6 group cursor-pointer">
+                <span className="text-blue-400 transition-all duration-300 group-hover:text-blue-300 group-hover:brightness-125 group-hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.6)]">{title}</span>
+              </h3>
+              <div className="flex-1 w-full flex items-center justify-center">
+                <Suspense fallback={
+                  <div className="w-full h-full flex items-center justify-center">
+                    <div className="w-48 h-48 rounded-full bg-blue-900/40 animate-pulse"></div>
+                  </div>
+                }>
+                  <GlobeVisualization />
+                </Suspense>
+              </div>
+            </div>
+          </div>
+        </>
       )}
       {id === 3 && (
         <BackgroundGradientAnimation
@@ -190,12 +241,12 @@ export const DeckCard = ({
 
       <div className={cn("h-full", id === 6 && "flex justify-center")}>
         <div className="absolute inset-0 h-full w-full">
-          {img && id !== 4 && id !== 5 && id !== 6 && (
+          {actualImg && id !== 2 && id !== 3 && id !== 4 && id !== 5 && id !== 6 && (
             <Image
               width={689}
               height={541}
-              src={getImagePath(img)}
-              alt={img}
+              src={getImagePath(actualImg)}
+              alt={actualImg}
               className={cn(
                 "h-full w-full object-cover object-center transition-transform duration-500",
                 imgClassName,
@@ -212,12 +263,12 @@ export const DeckCard = ({
             id === 5 && "w-full opacity-80"
           )}
         >
-          {spareImg && id !== 4 && id !== 5 && id !== 6 && (
+          {actualSpareImg && id !== 2 && id !== 3 && id !== 4 && id !== 5 && id !== 6 && (
             <Image
               width={208}
               height={96}
-              src={getImagePath(spareImg)}
-              alt={spareImg}
+              src={getImagePath(actualSpareImg)}
+              alt={actualSpareImg}
               className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
             />
           )}
@@ -289,7 +340,6 @@ export const DeckCard = ({
             "relative flex min-h-40 flex-col p-5 px-5 transition duration-200",
             id !== 3 && id !== 2 && id !== 4 && id !== 5 && id !== 6 && "group-hover:translate-x-2", 
             "md:h-full lg:p-10",
-            id === 2 && "pt-[15px] pb-0",
             titleClassName
           )}
         >
@@ -306,17 +356,6 @@ export const DeckCard = ({
             )}>
               <span className="text-blue-400 transition-all duration-300 group-hover:text-blue-300 group-hover:brightness-125 group-hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.6)]">{title}</span>
             </div>
-          )}
-
-          {id === 2 && (
-            <>
-              <div className="w-full text-center text-xl font-bold font-blackops md:text-2xl py-5 px-4 z-10 group cursor-pointer">
-                <span className="text-blue-400 transition-all duration-300 group-hover:text-blue-300 group-hover:brightness-125 group-hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.6)]">{title}</span>
-              </div>
-              <div className="flex-1 w-full flex items-center justify-center">
-                <GridGlobe />
-              </div>
-            </>
           )}
 
           {id === 3 && <TechCard isVisible={true} />}
@@ -388,8 +427,8 @@ export const DeckCard = ({
               </div>
               
               {/* Code content */}
-              <div className="pl-10 pt-3 pr-4">
-                <div className="animate-scroll">
+              <div className="pl-10 pt-3 pr-4 h-[200%] relative">
+                <div className="animate-[scrollDown_20s_linear_infinite]">
                   <pre className="text-[#d4d4d4] leading-6">
                     <div><span className="text-[#c586c0]">class</span> <span className="text-[#4ec9b0]">Stack</span> {'{'}</div>
                     <div>&nbsp;&nbsp;<span className="text-[#c586c0]">constructor</span>() {'{'}</div>
@@ -419,7 +458,7 @@ export const DeckCard = ({
             </div>
             
             {/* Terminal output */}
-            <div className="absolute left-16 right-6 bottom-6 h-40 bg-black/30 backdrop-blur-md rounded-md border border-white/10 overflow-hidden transform rotate-2">
+            <div className="absolute left-16 right-6 bottom-6 h-40 bg-black/30 backdrop-blur-md rounded-md border border-white/10 overflow-hidden transform -skew-y-2">
               <div className="bg-black/40 h-8 px-3 flex items-center text-xs text-gray-300 font-mono border-b border-white/10">
                 Terminal
               </div>
@@ -542,8 +581,8 @@ export const DeckCard = ({
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold font-blackops drop-shadow-md group inline-block cursor-pointer">
                 <span className="text-blue-400 transition-all duration-300 group-hover:text-blue-300 group-hover:brightness-125 group-hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.6)]">{title}</span>
               </h3>
-        </div>
-      </div>
+            </div>
+          </div>
         </>
       )}
     </motion.div>

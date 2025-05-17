@@ -9,8 +9,6 @@ import { cn, getImagePath } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./background-gradient-animation";
 import { MagicButton } from "./magic-button";
 
-import { GridGlobe } from "../grid-globe";
-
 export const BentoGrid = ({
   className,
   children,
@@ -109,7 +107,8 @@ export const BentoGridItem = ({
         <div
           className={cn(
             "relative flex min-h-40 flex-col p-5 px-5 transition duration-200 group-hover/bento:translate-x-2 md:h-full lg:p-10",
-            titleClassName
+            titleClassName,
+            id === 2 && "min-h-[400px] md:min-h-[500px] lg:min-h-[600px] p-0"
           )}
         >
           {description && (
@@ -118,11 +117,17 @@ export const BentoGridItem = ({
             </p>
           )}
 
-          <div className="z-10 max-w-96 font-sans text-lg font-bold lg:text-3xl transition-all duration-300 group-hover/bento:text-white group-hover/bento:translate-x-1">
-            {title}
-          </div>
+          {id !== 2 && (
+            <div className="z-10 max-w-96 font-sans text-lg font-bold lg:text-3xl transition-all duration-300 group-hover/bento:text-white group-hover/bento:translate-x-1">
+              {title}
+            </div>
+          )}
 
-          {id === 2 && <GridGlobe />}
+          {id === 2 && (
+            <div className="flex flex-col h-full w-full">
+              <div className="flex-1 w-full relative"></div>
+            </div>
+          )}
 
           {id === 3 && (
             <div className="absolute -right-3 flex w-fit gap-1 lg:-right-2 lg:gap-5">

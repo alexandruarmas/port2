@@ -53,74 +53,76 @@ export const TechCard = ({ isVisible }: { isVisible: boolean }) => {
 
   return (
     <div className="absolute inset-0 w-full h-full flex flex-col">
-      <div className="w-full text-center text-xl font-bold md:text-2xl py-5 px-4 z-10">
+      <div className="w-full text-center text-lg md:text-xl lg:text-2xl font-bold pt-2 px-4">
         <h2 className="text-blue-400 font-blackops group inline-block cursor-pointer">
           <span className="transition-all duration-300 group-hover:text-blue-300 group-hover:brightness-125 group-hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.6)]">Technologies</span>
         </h2>
       </div>
       
-      <div className="flex-1 flex flex-col justify-between px-6 pb-8 z-10">
-        <div className="mb-6">
-          <div className="text-center text-blue-300/80 uppercase text-xs mb-2">FRONTEND</div>
-          <div className="grid grid-cols-5 gap-1">
-            {categories.FRONTEND.map((tech) => (
-              <div key={tech} className="group flex flex-col items-center justify-center">
-                <div className={`text-2xl text-blue-400 transition-all duration-300 ${getHoverEffect(tech, 'FRONTEND')}`}>
-                  {iconMap[tech]}
-                </div>
-                <div className="text-[9px] text-center text-white/70 group-hover:text-white transition-colors duration-200 mt-1">
-                  {tech}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        <div className="mb-6">
-          <div className="text-center text-blue-300/80 uppercase text-xs mb-2">BACKEND</div>
-          <div className="grid grid-cols-5 gap-1">
-            {categories.BACKEND.map((tech) => (
-              <div key={tech} className="group flex flex-col items-center justify-center">
-                <div className={`text-2xl text-blue-400 transition-all duration-300 ${getHoverEffect(tech, 'BACKEND')}`}>
-                  {iconMap[tech]}
-                </div>
-                <div className="text-[9px] text-center text-white/70 group-hover:text-white transition-colors duration-200 mt-1">
-                  {tech}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        <div className="mb-6">  
-          <div className="text-center text-blue-300/80 uppercase text-xs mb-2">DEVOPS</div>
-          <div className="grid grid-cols-5 gap-1">
-            {categories.DEVOPS.map((tech) => (
-              <div key={tech} className="group flex flex-col items-center justify-center">
-                <div className={`text-2xl text-blue-400 transition-all duration-300 ${getHoverEffect(tech, 'DEVOPS')}`}>
-                      {iconMap[tech]}
-                    </div>
-                <div className="text-[9px] text-center text-white/70 group-hover:text-white transition-colors duration-200 mt-1">
-                      {tech}
-                    </div>
+      <div className="flex-1 flex flex-col justify-between px-3 md:px-2 g:px-8 pb-3">
+        <div className="flex-1 flex flex-col justify-between mt-8 md:mt-4 lg:mt-4">
+          <div>
+            <div className="text-center text-blue-300/80 uppercase text-[11px] mb-1.5">FRONTEND</div>
+            <div className="grid grid-cols-5 gap-2 md:gap-3 lg:gap-3">
+              {categories.FRONTEND.map((tech) => (
+                <div key={tech} className="group flex flex-col items-center justify-center">
+                  <div className={`text-xl md:text-2xl lg:text-3xl text-blue-400 transition-all duration-300 ${getHoverEffect(tech, 'FRONTEND')}`}>
+                    {iconMap[tech]}
                   </div>
-                ))}
-          </div>
-        </div>
-        
-        <div className="mb-2">
-          <div className="text-center text-blue-300/80 uppercase text-xs mb-2">DATABASE</div>
-          <div className="grid grid-cols-5 gap-1">
-            {categories.DATABASE.map((tech) => (
-              <div key={tech} className="group flex flex-col items-center justify-center">
-                <div className={`text-2xl text-blue-400 transition-all duration-300 ${getHoverEffect(tech, 'DATABASE')}`}>
-                  {iconMap[tech]}
+                  <div className="text-[9px] md:text-[10px] lg:text-[11px] text-center text-white/70 group-hover:text-white transition-colors duration-200 mt-1">
+                    {tech}
+                  </div>
                 </div>
-                <div className="text-[9px] text-center text-white/70 group-hover:text-white transition-colors duration-200 mt-1">
-                  {tech}
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
+          
+          <div className="mt-5">
+            <div className="text-center text-blue-300/80 uppercase text-[11px] mb-1.5">BACKEND</div>
+            <div className="grid grid-cols-5 gap-2 md:gap-3 lg:gap-3">
+              {categories.BACKEND.map((tech) => (
+                <div key={tech} className="group flex flex-col items-center justify-center">
+                  <div className={`text-xl md:text-2xl lg:text-3xl text-blue-400 transition-all duration-300 ${getHoverEffect(tech, 'BACKEND')}`}>
+                    {iconMap[tech]}
+                  </div>
+                  <div className="text-[9px] md:text-[10px] lg:text-[11px] text-center text-white/70 group-hover:text-white transition-colors duration-200 mt-1">
+                    {tech}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="mt-5">  
+            <div className="text-center text-blue-300/80 uppercase text-[11px] mb-1.5">DEVOPS</div>
+            <div className="grid grid-cols-5 gap-2 md:gap-3 lg:gap-3">
+              {categories.DEVOPS.map((tech) => (
+                <div key={tech} className="group flex flex-col items-center justify-center">
+                  <div className={`text-xl md:text-2xl lg:text-3xl text-blue-400 transition-all duration-300 ${getHoverEffect(tech, 'DEVOPS')}`}>
+                    {iconMap[tech]}
+                  </div>
+                  <div className="text-[9px] md:text-[10px] lg:text-[11px] text-center text-white/70 group-hover:text-white transition-colors duration-200 mt-1">
+                    {tech}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="mt-5">
+            <div className="text-center text-blue-300/80 uppercase text-[11px] mb-1.5">DATABASE</div>
+            <div className="grid grid-cols-5 gap-2 md:gap-3 lg:gap-3">
+              {categories.DATABASE.map((tech) => (
+                <div key={tech} className="group flex flex-col items-center justify-center">
+                  <div className={`text-xl md:text-2xl lg:text-3xl text-blue-400 transition-all duration-300 ${getHoverEffect(tech, 'DATABASE')}`}>
+                    {iconMap[tech]}
+                  </div>
+                  <div className="text-[9px] md:text-[10px] lg:text-[11px] text-center text-white/70 group-hover:text-white transition-colors duration-200 mt-1">
+                    {tech}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

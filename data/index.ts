@@ -75,7 +75,7 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "MrArmas - Personal Link Collection",
+    title: "MrArmas - Colecție de Link-uri Personale",
     des: "Un website modern și interactiv pentru un dezvoltator de conținut, prezentând profile sociale și informații de contact într-un design elegant și responsiv.",
     img: getImagePath("/mrarmas-avatar.png"),
     iconLists: ["/git.svg", "/three.svg", "/host.svg", "/c.svg", "/arrow.svg"].map(icon => getImagePath(icon)),
@@ -84,8 +84,8 @@ export const projects = [
   },
   {
     id: 2,
-    title: "Animated Apple Iphone 3D Website",
-    des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
+    title: "Website 3D iPhone Apple Animat",
+    des: "O recreare a website-ului Apple iPhone 15 Pro, combinând animații GSAP și efecte 3D cu Three.js pentru o experiență interactivă captivantă.",
     img: getImagePath("/p4.svg"),
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"].map(icon => getImagePath(icon)),
     link: "https://alexandruarmas.github.io/appleclone/",
@@ -93,21 +93,21 @@ export const projects = [
   },
   {
     id: 3,
-    title: "AI Image SaaS - Canva Application",
-    des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
+    title: "Aplicație SaaS pentru Editare Imagini AI",
+    des: "O aplicație Software-as-a-Service completă cu funcții AI și sistem de plăți și credite, folosind cele mai noi tehnologii.",
     img: getImagePath("/p3.svg"),
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"].map(icon => getImagePath(icon)),
     link: "https://ai-imaginify.netlify.app",
-    sourceCode: "https://github.com/sanidhyy/imaginify",
+    sourceCode: "https://github.com/alexandruarmas/imaginify",
   },
   {
     id: 4,
-    title: "Yoom - Video Conferencing App",
-    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-    img: getImagePath("/p2.svg"),
+    title: "ToKu - Aplicație de Videoconferințe",
+    des: "O platformă modernă de videoconferințe cu interfață intuitivă, dezvoltată pentru a facilita întâlnirile online și colaborarea la distanță.",
+    img: getImagePath("/teku-preview.png"),
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"].map(icon => getImagePath(icon)),
     link: "https://clone-yoom.netlify.app",
-    sourceCode: "https://github.com/sanidhyy/zoom-clone",
+    sourceCode: "https://github.com/alexandruarmas/zoom-clone",
   },
 ] as const;
 

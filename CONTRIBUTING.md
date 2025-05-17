@@ -1,5 +1,57 @@
 <!-- omit in toc -->
 
+# Ghid de Contribuție
+
+Mulțumim pentru interesul tău în a contribui la proiectul meu de portofoliu! Aici sunt câteva indicații pentru a face procesul cât mai ușor și eficient.
+
+## Cum să Contribui
+
+1. Fork acest repository
+2. Creează un branch nou (`git checkout -b feature/AmazingFeature`)
+3. Fă commit la modificările tale (`git commit -m 'Add some AmazingFeature'`)
+4. Push la branch (`git push origin feature/AmazingFeature`)
+5. Deschide un Pull Request
+
+## Standarde de Cod
+
+- Folosește TypeScript pentru tot codul nou
+- Urmează stilul de cod existent din proiect
+- Adaugă comentarii pentru cod complex
+- Menține componente mici și reutilizabile
+- Folosește Tailwind CSS pentru stilizare
+- Testează codul pe diferite dispozitive
+
+## Raportarea Bug-urilor
+
+Dacă găsești un bug, te rog să creezi un issue cu următoarele informații:
+
+- O descriere clară a bug-ului
+- Pașii pentru reproducere
+- Comportamentul așteptat
+- Screenshot-uri (dacă este relevant)
+- Informații despre mediul tău (browser, sistem de operare, etc.)
+
+## Sugestii de Funcționalități
+
+Sugestiile sunt întotdeauna binevenite! Pentru sugestii:
+
+1. Verifică mai întâi dacă sugestia nu există deja în issues
+2. Deschide un nou issue cu tag-ul "enhancement"
+3. Descrie clar funcționalitatea și beneficiile ei
+
+## Întrebări?
+
+Dacă ai întrebări sau ai nevoie de clarificări:
+
+- Deschide un issue cu tag-ul "question"
+- Contactează-mă direct la [contact@alexandruarmas.com](mailto:contact@alexandruarmas.com)
+
+## Licență
+
+Prin contribuția ta, ești de acord ca modificările să fie sub aceeași [licență MIT](LICENSE) ca și proiectul.
+
+<!-- omit in toc -->
+
 # Contributing to Next Portfolio
 
 First off, thanks for taking the time to contribute! ❤️

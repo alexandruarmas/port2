@@ -1,21 +1,31 @@
-# Security Policy
+# Politica de Securitate
 
-## Supported Versions
+## Raportarea unei Vulnerabilități
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+Securitatea este o prioritate pentru noi. Dacă descoperi o vulnerabilitate de securitate în acest proiect, te rugăm să o raportezi responsabil:
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+1. **NU** crea un Issue public pentru vulnerabilitate
+2. Trimite un email la [contact@alexandruarmas.com](mailto:contact@alexandruarmas.com)
+3. Include în email:
+   - Descrierea vulnerabilității
+   - Pașii pentru reproducere
+   - Versiunea afectată
+   - Posibil impact
+   - Sugestii pentru remediere (opțional)
 
-## Reporting a Vulnerability
+## Răspuns și Actualizări
 
-Use this section to tell people how to report a vulnerability.
+- Vei primi un răspuns în maxim 48 de ore
+- Vom investiga și vom confirma vulnerabilitatea
+- Vom dezvolta și testa o soluție
+- Vom lansa un patch cât mai curând posibil
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+## Versiuni Suportate
+
+| Versiune | Suportată |
+| -------- | --------- |
+| 1.x.x    | ✅        |
+
+## Mulțumiri
+
+Mulțumim tuturor care contribuie la securitatea acestui proiect prin raportarea responsabilă a vulnerabilităților.

@@ -91,6 +91,14 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        scrollDown: {
+          "0%": {
+            transform: "translateY(0%)",
+          },
+          "100%": {
+            transform: "translateY(-50%)",
+          },
+        },
         spotlight: {
           "0%": {
             opacity: "0",
