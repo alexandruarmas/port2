@@ -78,11 +78,11 @@ const ProjectCard = ({ project, index, totalProjects }: ProjectCardProps) => {
 
             {img && (
               <Image
-                height={300}
-                width={464}
+                height={id === 3 ? 180 : 300}
+                width={id === 3 ? 278 : 464}
                 src={img}
                 alt={title}
-                className="absolute bottom-0 z-10 max-h-[70%] w-auto project-image"
+                className={`absolute bottom-0 z-10 ${id === 3 ? 'max-h-[40%]' : 'max-h-[70%]'} w-auto project-image`}
                 priority
                 unoptimized
               />
