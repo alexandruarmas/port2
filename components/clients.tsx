@@ -7,7 +7,7 @@ export const Clients = () => {
   return (
     <section id="testimonials" className="section-spacing">
       <div className="flex flex-col items-center">
-        <h1 className="heading-rye">
+        <h1 className="heading-rye mt-[-25px]">
           Recenziile <span className="text-purple">clienților mei</span>
         </h1>
 
